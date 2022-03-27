@@ -1,0 +1,100 @@
+---
+layout: post
+title: "关于ES6的这些你知道吗"
+date: 2017-09-09 09:23:11
+tags: ['基础知识']
+---
+
+
+
+使用vue开发的时候经常使用es6的语法，下面是一些自己工作中的一些笔记。希望多多补充：
+
+![](./about-es6.jpg)
+
+
+### 1、箭头函数
+
+> 箭头函数没有它自己的this值，箭头函数内的this值继承自外围作用域
+
+编译时通过bind外围的this来绑定对象
+
+### 2、在for in 和for of循环中let和const每一次迭代都会创建一个新的绑定
+
+
+```
+for(let i = 0; i < 10; i++){
+	setTimeout(function(){console.log(i)})
+}
+```
+
+
+```
+for(var i = 0; i < 10; i++){
+	setTimeout(function(){console.log(i)})
+}
+```
+
+
+- string的三个查找字符串的方法 includes、startsWith、endsWith
+
+- string重复的方法repeat
+
+- 剩余参数-由三个点和一个紧跟着的具名参数指定，它会是包含传递给函数的其余参数的一个数组
+
+
+```
+function pick(object, ...keys){
+    let result = Object.create(null);
+    for(let i = 0; i < keys.length; i++){
+        result[keys[i]] = object[keys[i]]
+    }
+    return result;
+}
+```
+
+
+### 3、特殊操作符 '...'
+
+> 可作为扩展运算符或者剩余操作符，扩展指把属性展开；而剩余指把多个元素变为一个元素（塞到数组里）
+
+相当于Function.prototype.apply，把数组展开，可用于一下几个方向
+
+- 把数组变成多个形参，进行函数调用
+- 把两个数组合并成一个
+- 数组解构（提取的结果是一个数组对象）
+- 将类数组对象转换成数组
+
+具体如下：
+
+```
+var students = ['Abby','Andy'];
+var otherStudents = ['Jane','Tom'];
+students.push(...otherStudents);
+
+/*********************/
+
+var parts = ['shoulders', 'knees'];
+var lyrics = ['head', ...parts, 'and', 'toes'];
+
+/*********************/
+
+var students = ['Abby', 'Andy', 'Jane', 'Tom'];
+var somestudents, otherStudents;
+[somestudents, ...otherStudents] = students ;
+
+/*********************/
+
+var nodeList = document.querySelectorAll('div');
+var array = [...nodeList];
+```
+
+### 4、Object.assign对象属性混合
+
+> 针对深度拷贝，需要使用其他方法，因为 Object.assign() 拷贝的是属性值。假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值。
+
+Object.getOwnPropertyDescriptor()返回指定对象上一个自有属性对应的属性描述符。（自有属性指的是直接赋予该对象的属性，不需要从原型链上进行查找的属性）
+
+- Object.assign 会跳过那些值为 null 或 undefined 的源对象
+- 继承属性（原型链上）和不可枚举属性是不能拷贝的
+- 原始类型会被包装为 object，只有字符串的包装对象才可能有自身可枚举属性
+- 拷贝过程中可能会产生异常，已经拷贝成功的属性不会受到影响，还未拷贝的属性将不会再被拷贝

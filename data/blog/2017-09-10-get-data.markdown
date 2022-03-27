@@ -1,0 +1,110 @@
+---
+layout: post
+title:  "记一次node捉取表格数据的实践"
+date:   2017-09-10 20:40:20
+tags: ['实战应用']
+---
+
+
+最近在公司办理了人才引入，递交了资料，然后就等待公示；公示的名单会在改网页中展示http://www.hrssgz.gov.cn/vsgzpiapp01/GZPI/Gateway/PersonIntroducePublicity.aspx，点进去查看一番
+觉得坑爹的是每页只显示几条，而且还有60页之多，这简直是反人类。于是便想着把所有的数据搞下来！
+
+![](step1.png)
+
+第一步肯定是F12看看请求的格式了，又翻页看了一下请求，大致了解了流程：
+
+- 每次请求会拿到__VIEWSTATEGENERATOR、__VIEWSTATE等着些后端的code值
+- __EVENTTARGET表明是第一页还是尾页、或者上一页下一页
+- ToPage为当前的页码
+- 接口的地址都是这一个/vsgzpiapp01/GZPI/Gateway/PersonIntroducePublicity.aspx
+- 采用post的方式请求
+
+http请求体
+
+![](./step2.png)
+
+页面跳转处理
+
+![](./step3.png)
+
+跳转执行函数
+
+![](./step4.png)
+
+第二步模拟请求，获取返回的html，截取数据拿到第一页的表格，存储起来，并拿第二页的请求参数
+
+这里借助了两个npm的包request、cheerio
+
+- request一个node发送http请求十分好用的包，可以任意拼装http头部所有字段，模拟现实的浏览器请求也不成问题
+- cheerio可以让你再node中像在浏览器里一样使用jquery的包，可以方便地操作dom节点
+
+具体实现如下，会把结果写入到当前的一个data.html文件里：
+
+```
+var fs = require('fs'),
+    request = require('request'),
+    cheerio = require('cheerio')
+
+// 缓存的结果
+var result = ''
+
+function write(str){
+    fs.writeFile('./data.html', str, function (err) {
+        if (err) throw err;
+    });
+}
+
+// 为了好看一点，包装一下
+function wrapHtml(str) {
+    var header = '<tr class="ListHeader" align="center"> <td>姓名</td><td>单位名称</td><td>批复结果</td><td>审批单位</td><td>公示开始时间</td><td>公示结束时间</td> </tr>'
+    str = '<table>' + header + str +'</table>'
+    return '<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>最新名单</title> </head> <body> '+str+'</body > </html>'
+}
+
+function query(data){
+    request.post({
+        url: 'http://www.hrssgz.gov.cn/vsgzpiapp01/GZPI/Gateway/PersonIntroducePublicity.aspx',
+        formData: data
+    }, function (error, response, body) {
+        var startIndex = body.indexOf('<tr class="ListItem">')
+        var endIndex = body.indexOf('</table>')
+        result += body.slice(startIndex, endIndex)
+        var formData = getFormData(body)
+		//如果formdata没值标示没有下一页了，也就可以结束了
+        if(formData){
+            query(formData)
+        }else{
+            write(wrapHtml(result))
+            console.log('读取完成');
+        }
+    })
+}
+
+//在body中获取下一页的参数
+function getFormData (body) {
+    const $ = cheerio.load(body)
+    if($('#NextLBtn').attr('disabled') == 'disabled'){
+        return false
+    }
+    var total = $('#PageCount').text()
+    var cur = $('#ToPage').val()
+    console.log('继续读取第'+Number(+cur + 1)+'页，' + '共'+total+'页');
+    return {
+        __EVENTTARGET: 'NextLBtn',
+        __VIEWSTATE: $('#__VIEWSTATE').val(),
+        __VIEWSTATEGENERATOR: $('#__VIEWSTATEGENERATOR').val(),
+        ToPage: cur
+    }
+}
+//开始拿第一页的数据
+query()
+```
+
+下面是执行的结果
+
+![](./step5.png)
+
+总的来说流程还是比较简单的，拿到表格之后也可以随意搜索名字了。node确实是给前端带来了很大的改变，让前端可以从浏览器走出去，可以任意的操作计算机系统的资源，而目前更是广泛应用到静态服务器、SSR、资源打包优化、桌面应用等。
+可以说Web2.0让js死而复生，node让js脱胎换骨。js如火如荼也很大程度上得益于当今项目开源的浪潮，前不久更是看到了一些开源的神经网络js库，相信不久的将来，在AI、VR等新技术领域js也定能分得一杯羹。
+
+其实作为IT人士，一直觉得我们不应该太过局限于工作，与技能结合起来，让能力更好地改变我们的生活，结合生活我们才能有所创造。铁饭碗不是来源于组织的强大稳健，而是产品与技术创新。

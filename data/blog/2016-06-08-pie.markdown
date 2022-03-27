@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "环形统计图"
+date:   2017-02-16 19:23:19
+tags: ['基础知识']
+---
+
+#环形图的生成
+
+最近遇到一个环形图的需求，图形的线是圆角的，最开始想用highchart，无奈不支持圆角，于是乎，另辟蹊径。经历了css3-->canvas-->graphics的历程。
+## graphics
+是一款js的svg库，里面的接口比canvas的友好。而且svg的兼容性还不赖。最开始想着椭圆的进度如何画，后来发现直接用弧线比较直接快捷。代码如下：
+
+demo [http://miniwa.com.cn/apps/pie/index.html]
+
+```
+
+var stage = acgraph.create('container');
+    var bigCircle = stage.circle(180, 180, 180);//最外面的大圆
+
+    bigCircle.fill('#ddd').stroke('#ddd');
+
+    stage.path()
+        //为了实现圆角用弧线变宽最为进度
+        .circularArc(180, 180, 160, 160, -90, 90)
+        .stroke({
+            color: '#129090',       //颜色
+            thickness: 40,          //宽度
+            lineCap: "ROUND"        //圆角
+        })
+
+
+    var smallCircle = stage.circle(180, 180, 140);//里面的小圆
+    smallCircle.fill('#fff').stroke('#ddd'); 
+    
+```
