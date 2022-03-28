@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: PostLayout
 title: 'js的垃圾回收机制'
 date: 2015-11-06 11:50:12
 tags: ['js原理']

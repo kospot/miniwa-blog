@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: PostLayout
 title: 'css居中显示'
 date: 2016-04-10 11:50:12
 tags: ['CSS样式']

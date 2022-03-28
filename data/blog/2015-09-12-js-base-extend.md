@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: PostLayout
 title: 'javascript的继承'
 date: 2015-09-12 19:23:19
 tags: ['js原理']

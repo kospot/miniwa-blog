@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: PostLayout
 title: 'vue-router的使用'
 date: 2017-08-18 20:23:19
 tags: ['基础知识']

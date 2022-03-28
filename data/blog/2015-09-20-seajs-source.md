@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: PostLayout
 title: '浅析模块化和seajs'
 date: 2015-09-20 15:23:12
 tags: ['基础知识']

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: PostLayout
 title: '影子(shadow)DOM'
 date: 2015-09-20 15:23:12
 tags: ['基础知识']

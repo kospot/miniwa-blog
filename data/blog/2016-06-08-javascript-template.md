@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: PostLayout
 title: 'javascript模板'
 date: 2016-06-08 19:23:19
 tags: ['基础知识']
@@ -43,6 +43,7 @@ function template(tplStr){
 	}
 ```
 
+```
 步骤如下：
 
 1. 前面加上 var \_ary =[]; with(data){\_ary.push('
@@ -54,6 +55,8 @@ function template(tplStr){
 4. %> 替换成 ;\_ary.push('
 
 5. 尾部加上');}return \_ary.join('')
+
+```
 
 这里需要用 with 来暂时改变作用域链，以避免数据对象未知引起的错误，通过 with 可以忽略顶级的数据变量。最后通过 apply 来执行函数，可以使 this 指向当前的数据。
 

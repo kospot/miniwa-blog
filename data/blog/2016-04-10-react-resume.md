@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: PostLayout
 title: 'reactjs总结'
 date: 2016-04-10 11:50:12
 tags: ['基础知识']
