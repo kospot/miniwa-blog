@@ -1,16 +1,57 @@
 ---
-name: Tails Azimuth
-avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
+name: 小明&小艺
+avatar: /static/images/sparrowhawk-avatar.jpg
+date: 2018-05-27 09:02:36
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+> 浪荡一生，只爱一人
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+主人公：小明&小艺
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+年代：90 后的初生代
+
+# 那些年我们的记忆：
+
+我们无法改变时间，却能让时间变得更有意义。岁月悠悠，天地辽阔，我们的旅行还在继续，此生我要做你的守护者和记录者~
+
+**下面节选精彩片段**
+
+2014.08.30 我们于千万人当中，相识了，就像：转角处，你就在那
+
+2015.09.12 我们一起去了长隆动物园，穿越了两次亚非大陆，看了大笨象、杂技表演
+
+2015.06.20 我们相约去了一趟 3 天的丹霞山，一个美丽、清新、难忘的地方
+
+2015.10.17 听说那里的时间很慢，我们直飞了两天厦门鼓浪屿
+
+2015.12.09 跟一个不知道自己什么时候过生日的么么哒过了第一次生日
+
+2016.01.31 去了广州海洋馆溜达溜达
+
+2016.03.20 我们一起搬进了小黑屋
+
+2016.03.12 植树节，海珠湖逛逛
+
+2016.04.02 惠州黑排角走了一圈
+
+2016.04.09 简蓬水乡找吃的
+
+2016.05.14 听说澳门有大牌坊、有美食，就过去了
+
+2016.07.07 珠海长隆企鹅酒店+海洋王国+大马戏
+
+2017.06.17 跟么么哒一家人二刷广州长隆动物园+马戏
+
+2017-08-05 桂林阳朔休闲两日游
+
+2017-10-01 么么哒呕心沥血，塞了一天肥到了我家
+
+2017.11.16 十分重要和敬业的一天，我们领证啦~然后去上班了
+
+2017.11.18 广州灯光节喵喵
+
+2017.12.02 幸福誉，下定了我们的小窝，期待着···
+
+2018.02.19 香港飞冲绳 6 天，小学生英语闯世界，难忘那美丽的海岛
+
+未完待续···

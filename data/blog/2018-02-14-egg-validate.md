@@ -2,8 +2,8 @@
 title: egg整合数据校验
 date: 2018-02-14 00:05:45
 tags: ['实战应用']
-header_image: 'https://cn.bing.com/az/hprichbg/rb/happychildday_ZH-CN9412524114_1920x1080.jpg'
-description: 'eggjs整合数据官方的校验插件'
+images: ['https://cn.bing.com/az/hprichbg/rb/happychildday_ZH-CN9412524114_1920x1080.jpg']
+summary: 'eggjs整合数据官方的校验插件'
 ---
 
 egg 官方的插件 egg-validate 依赖了[parameter](https://github.com/node-modules/parameter/blob/master/README.md)包，其只做了两个处理

@@ -3,7 +3,7 @@ layout: post
 title:  "我和小艺的广州阳朔两日闲游"
 date:   2017-08-19 10:38:19
 tags: ['闲暇游记']
-header_image: 'https://dimg02.c-ctrip.com/images/100u0l000000dat7w409F_C_1600_1200_Mtg_7.jpg'
+images: ['https://dimg02.c-ctrip.com/images/100u0l000000dat7w409F_C_1600_1200_Mtg_7.jpg']
 ---
 
 广西阳朔，山水秀丽，价美物廉，向来是大学生毕业游的首选之地，我们也不例外。三年前，是五个小时的大巴；三年后，两个小时的动车。时代发展变化很快，时间的缩短也让我们有了再去一次走走的念头。于是乎网上订票，可也奇怪
