@@ -1,12 +1,11 @@
 ---
 layout: post
-title:  "javascript模板"
-date:   2016-06-08 19:23:19
+title: 'javascript模板'
+date: 2016-06-08 19:23:19
 tags: ['基础知识']
 ---
 
-
-最早使用的js模板是这样子的
+最早使用的 js 模板是这样子的
 
 ```
 String.prototype.template = function(e, t) {
@@ -17,7 +16,7 @@ String.prototype.template = function(e, t) {
 }
 ```
 
-主要是通过正则来匹配，替换数据，不足之处是不能嵌入js的语句，对于一些需要遍历输出的就略显蛋疼了！想起underscore的template和ejs的模板，于是去看了一下它们的实现，主要原理还是：把不需要js的当作字符串，把需要js执行的直接用js执行，通过动态创建函数，执行模板。具体实现如下：
+主要是通过正则来匹配，替换数据，不足之处是不能嵌入 js 的语句，对于一些需要遍历输出的就略显蛋疼了！想起 underscore 的 template 和 ejs 的模板，于是去看了一下它们的实现，主要原理还是：把不需要 js 的当作字符串，把需要 js 执行的直接用 js 执行，通过动态创建函数，执行模板。具体实现如下：
 
 ```
 <script type="text/template" id="tplStr">
@@ -46,18 +45,16 @@ function template(tplStr){
 
 步骤如下：
 
-1. 前面加上 var _ary =[]; with(data){_ary.push('
+1. 前面加上 var \_ary =[]; with(data){\_ary.push('
 
-2. <%=users[i].url%>  替换成');_ary.push(users[i].url);_ary.push('
+2. <%=users[i].url%> 替换成');\_ary.push(users[i].url);\_ary.push('
 
-3. <%  替换成  ');
+3. <% 替换成 ');
 
-4. %>  替换成  ;_ary.push('
+4. %> 替换成 ;\_ary.push('
 
-5. 尾部加上');}return _ary.join('')
+5. 尾部加上');}return \_ary.join('')
 
-
-
-这里需要用with来暂时改变作用域链，以避免数据对象未知引起的错误，通过with可以忽略顶级的数据变量。最后通过apply来执行函数，可以使this指向当前的数据。
+这里需要用 with 来暂时改变作用域链，以避免数据对象未知引起的错误，通过 with 可以忽略顶级的数据变量。最后通过 apply 来执行函数，可以使 this 指向当前的数据。
 
 总的来说，难点在于如何把不变的当成字符串，需要就是执行的，让其直接执行。
