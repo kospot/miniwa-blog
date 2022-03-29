@@ -7,14 +7,14 @@ tags: ['设计原理']
 
 目的：介绍 vue3 的新特性，以及项目开发过程中的差异
 
-一、Vue3 新特性
+## 一、Vue3 新特性
 
 - Teleport
 - 触发组件选项
 - 单文件组件增强（mutiple node、css var、setup）
 - 组合式 API
 
-  1.1Teleport
+### 1.1Teleport
 
 作用：把模板传送到目标节点渲染
 
@@ -26,7 +26,7 @@ https://v3.cn.vuejs.org/api/built-in-components.html#teleport
 </teleport>
 ```
 
-1.2 触发组件选项
+### 1.2 触发组件选项
 
 调整：事件可定义检验函数
 
@@ -56,7 +56,7 @@ app.component('custom-form', {
 })
 ```
 
-1.3 单文件组件增强
+### 1.3 单文件组件增强
 
 支持了多根节点的组件，也就是片段
 
@@ -105,15 +105,15 @@ export default {
 </style>
 ```
 
-1.4 组合式 API
+### 1.4 组合式 API
 
 组合式 API 不同于 OptionApi，重点在关注点分离，组合式 API 的基础主要是基于以下几点：
 
-1.4.1setup 提供切入点
+#### 1.4.1setup 提供切入点
 
 setup 执行时，组件实例尚未创建，因此函数中没有 this 指向，除了 props 之外，不能访问其它的成员变量和方法。
 
-1.4.2 相对独立的响应式变量
+#### 1.4.2 相对独立的响应式变量
 
 ```
 import { ref } from 'vue'
@@ -121,13 +121,13 @@ import { ref } from 'vue'
 const counter = ref(0)
 ```
 
-1.4.3 支持完备的 optionAPI 功能
+#### 1.4.3 支持完备的 optionAPI 功能
 
 watch、生命周期、computed
 
 Vue3 不兼容变更：https://v3.cn.vuejs.org/guide/migration/introduction.html#%E9%9D%9E%E5%85%BC%E5%AE%B9%E7%9A%84%E5%8F%98%E6%9B%B4
 
-二、项目应用
+## 二、项目应用
 
 基于功能的关注点分离
 
