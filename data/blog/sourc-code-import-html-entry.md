@@ -4,6 +4,7 @@ title: '源码解读：import-html-entry'
 date: 2022-03-12 20:13:32
 draft: false
 tags: ['源码']
+summary: import-html-entry是qiankun框架主要的依赖包之一，负责从html页面里提取微前端所需的入口、css、html资源。本文主要走查一下它的代码，介绍提取的主要流程和组件内部使用的一些技巧。最后通过这个库的一些处理过程，我们也可以更好的了解微前端的特性。
 ---
 
 # import-html-entry 介绍

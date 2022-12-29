@@ -3,6 +3,7 @@ layout: PostLayout
 title: 'Vue3新特性学习'
 date: 2021-07-12 20:13:32
 tags: ['设计原理']
+summary: 介绍 vue3 的新特性，以及项目开发过程中的差异
 ---
 
 目的：介绍 vue3 的新特性，以及项目开发过程中的差异
