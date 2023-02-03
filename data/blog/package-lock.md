@@ -39,7 +39,7 @@ package-lock.json 也并非一直有效的，其可以锁定 package.json 的依
 
 element-ui 在业务使用过程中，发现了一个 bug，el-tree 不会自动展开指定的菜单节点，发现其在 2.12.0 的版本修复了这个问题，于是把 element-ui 的版本升级了一下。升级之后，发现构建时出现了如下异常
 
-```
+```js showLineNumbers
 Happy[babel]: All set; signaling webpack to proceed.
  ERROR  Failed to compile with 4 errors9:20:56 AM
 
