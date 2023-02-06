@@ -86,6 +86,22 @@ var IDLE_PRIORITY_TIMEOUT = maxSigned31BitInt;
 ```
 
 可以看到 `IMMEDIATE_PRIORITY_TIMEOUT = -1`，说明比当前时间还早，已经过期，必须快执行，初此之外，react 新增了两个队列：已就绪任务 ，未就绪任务
-所以，Scheduler 存在两个队列：timerQueue：保存未就绪任务，taskQueue：保存已就绪任务
+所以，Scheduler 存在两个队列：timerQueue：保存未就绪可以延迟执行的任务，taskQueue：保存已就绪要立即执行的任务。
 
-每当有新的未就绪的任务被注册，我们将其插入 timerQueue 并根据开始时间重新排列 timerQueue 中任务的顺序。当 timerQueue 中有任务就绪，即 `startTime <= currentTime`，我们将其取出并加入 taskQueue。取出 taskQueue 中最早过期的任务并执行他。
+每当有新的未就绪的任务被注册，我们将其插入 timerQueue 并根据开始时间重新排列 timerQueue 中任务的顺序。当 timerQueue 中有任务就绪，即 `startTime <= currentTime`，我们将其取出并加入 taskQueue。取出 taskQueue 中最早过期的任务并执行他。部分任务有 delay 参数，表示可以延迟的，进入 timerQueue。
+
+React 怎么找到优先级最高的任务呢？前面已经说到 timerQueue 和 taskQueue 是队列，那显然就是一个优先队列，优先队列一般可以使用堆排序，那怎么评估优先级呢？Scheduler 里使用过期时间和 id 做比较
+
+```
+function compare(a, b) {
+  // Compare sort index first, then task id.
+  const diff = a.sortIndex - b.sortIndex;
+  return diff !== 0 ? diff : a.id - b.id;
+}
+```
+
+sortIndex = 当前时间戳 + 延迟时间 + 不同优先级的过期时间
+
+优先比较过期时间（sortIndex），相同的，则比较 id（由 1 递增）
+
+Schedule 使用的是小根堆，用一维数组存储树结构，父子节点通过下标维护，核心是实现取堆顶、上旋和下旋方法。建堆时，调用上旋方法。删除元素时把最后一个放到堆顶，然后调用下旋方法。
