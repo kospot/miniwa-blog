@@ -85,7 +85,7 @@ var LOW_PRIORITY_TIMEOUT = 10000;
 var IDLE_PRIORITY_TIMEOUT = maxSigned31BitInt;
 ```
 
-可以看到 IMMEDIATE_PRIORITY_TIMEOUT = -1，说明比当前时间还早，已经过期，必须快执行，初此之外，react 新增了两个队列：已就绪任务 ，未就绪任务
+可以看到 `IMMEDIATE_PRIORITY_TIMEOUT = -1`，说明比当前时间还早，已经过期，必须快执行，初此之外，react 新增了两个队列：已就绪任务 ，未就绪任务
 所以，Scheduler 存在两个队列：timerQueue：保存未就绪任务，taskQueue：保存已就绪任务
 
 每当有新的未就绪的任务被注册，我们将其插入 timerQueue 并根据开始时间重新排列 timerQueue 中任务的顺序。当 timerQueue 中有任务就绪，即 startTime <= currentTime，我们将其取出并加入 taskQueue。取出 taskQueue 中最早过期的任务并执行他。
