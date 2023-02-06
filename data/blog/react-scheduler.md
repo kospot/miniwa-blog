@@ -1,9 +1,9 @@
 ---
 layout: PostLayout
 title: 'ReactScheduler梳理'
-date: 2022-12-05 12:47:28
+date: 2022-11-06 12:47:28
 tags: ['js原理']
-summary: V8的堆内存分为3部分，分别为年轻分代，年老分代，大对象空间。
+summary: ReactScheduler是 react 的内部包，用于浏览器环境协同调度的，主要介绍出现的背景，以及解决的问题，和基本的设计思路。
 ---
 
 是 react 的内部包，md 里声明的是用于浏览器环境协同调度的，也有计划把它推广出去。
