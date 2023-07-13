@@ -11,7 +11,7 @@
 }
 
 .footnotes {
-  @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
+  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
 }
 
 .csl-entry {
@@ -22,4 +22,14 @@
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+body .prose {
+  font-family: Pingfang SC, helvetica neuepingfang SC, helvetica neue, arial, hiragino sans gb,
+    microsoft yahei ui, microsoft yahei, simsun, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #181818;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
 }
