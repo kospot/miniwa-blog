@@ -1,28 +1,30 @@
-import 'gitalk/dist/gitalk.css'
-import Gitalk from 'gitalk'
+import Script from 'next/script'
 import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Talk() {
+  const router = useRouter()
+  const { edit } = router
   useEffect(() => {
-    const gitalk = new Gitalk({
-      clientID: 'c19b0c665b26323d8bd2',
-      clientSecret: '502fed637828504fb0bedb194dc37ceeb52d1962',
-      repo: 'https://github.com/kospot/miniwa-blog.git',
-      owner: 'kospot',
-      admin: ['kospot'],
-      id: location.pathname,
-      distractionFreeMode: false,
-    })
-    gitalk.render('gitalk-container')
+    setTimeout(() => {
+      window.Discuss.init({
+        el: '#Discuss-Comments-Admin',
+        enable: true,
+        // unpkg
+        emotCDN: 'https://unpkg.com/discuss@1.2.3',
+        serverURLs: 'https://discuss.miniwa.site',
+      })
+    }, 500)
   }, [])
   return (
     <>
-      <h3>常用工具</h3>
-      <div id="gitalk-container"></div>
-      <div>
-        <div>
-          <p className="text-2xl">文本1</p>
-        </div>
+      <Script type="text/javascript" src="/static/scripts/discuss.js" />
+      <Script type="text/javascript" src="/static/scripts/discuss.admin.js" />
+      <div className={edit ? 'discuss-edit' : 'discuss-view'}>
+        <h3 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+          分享
+        </h3>
+        <div id="Discuss-Comments-Admin"></div>
       </div>
     </>
   )

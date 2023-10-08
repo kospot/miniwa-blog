@@ -33,3 +33,12 @@ body .prose {
   font-size: 14px;
   line-height: 22px;
 }
+
+#Discuss .D-input > input:nth-child(3) {
+  display: none;
+}
+
+.discuss-view .D-submit,
+.discuss-view .D-comments-count {
+  display: none;
+}
