@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 export default function Talk() {
   const router = useRouter()
-  const { edit } = router
+  const { edit } = router.query
   useEffect(() => {
     setTimeout(() => {
       window.Discuss.init({
