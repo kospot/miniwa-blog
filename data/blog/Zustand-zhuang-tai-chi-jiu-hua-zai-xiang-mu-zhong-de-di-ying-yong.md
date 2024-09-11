@@ -3,9 +3,7 @@ layout: PostLayout
 title: Zustand：状态持久化在项目中的应用
 date: 2024-08-25 05:53:52
 tags: ['js原理']
-summary: ![](https://files.mdnice.com/user/70043/893d7179-b3c3-4ab1-b0df-4d1520565abf.png)
-
-Zustand的持久化中间件允许你将状态存储在各种存储中，例如`localStorage`、`AsyncStorage`或`IndexedDB`等。这使得应用的状态可以跨页面持久化。也就是说用户刷新页面或者关闭浏览器后重新打开，应用的
+summary: Zustand的持久化中间件允许你将状态存储在各种存储中，例如`localStorage`、`AsyncStorage`或`IndexedDB`等。这使得应用的状态可以跨页面持久化。也就是说用户刷新页面或者关闭浏览器后重新打开，应用的
 ---
 
 ![](https://files.mdnice.com/user/70043/893d7179-b3c3-4ab1-b0df-4d1520565abf.png)

@@ -3,16 +3,7 @@ layout: PostLayout
 title: 如何实现深拷贝？structuredClone
 date: 2024-09-10 07:07:49
 tags: ['js原理']
-summary: 经典的面试题：如何实现深拷贝。
-
-常规的回答主要是通过JSON或者遍历对象递归。主要是考核对对象操作方法的熟悉程度。今天来介绍另一个方案`structuredClone()`。
-
-
-![](https://files.mdnice.com/user/70043/19c11a61-e613-4025-a42c-298747db4a78.png)
-
-
-什么是 `structuredClone()`？
-
+summary: 经典的面试题：如何实现深拷贝。常规的回答主要是通过JSON或者遍历对象递归。主要是考核对对象操作方法的熟悉程度。今天来介绍另一个方案`structuredClone()`。
 ---
 
 经典的面试题：如何实现深拷贝。

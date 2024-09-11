@@ -3,11 +3,7 @@ layout: PostLayout
 title: 每个JavaScript开发者必须知道的五大Navigator API特性
 date: 2024-09-02 19:56:59
 tags: ['js原理']
-summary: 
-JavaScript中的Navigator API是一个强大的接口，它提供了访问广泛浏览器功能的能力。在这篇博客中，我们将探索每个JavaScript开发者都应该熟悉的Navigator API的五个关键特性，以及实用的代码示例，帮助你将这些特性集成到你的项目中。
-
-1. **检测在线和离线状态**
-   理解用户是否在线对于创建弹性的Web应用程序至关重要。Navigator API提供了一个
+summary: JavaScript中的Navigator API是一个强大的接口，它提供了访问广泛浏览器功能的能力。在这篇博客中，我们将探索每个JavaScript开发者都应该熟悉的Navigator API的五个关键特性，以及实用的代码示例，帮助你将这些特性集成到你的项目中。
 ---
 
 JavaScript 中的 Navigator API 是一个强大的接口，它提供了访问广泛浏览器功能的能力。在这篇博客中，我们将探索每个 JavaScript 开发者都应该熟悉的 Navigator API 的五个关键特性，以及实用的代码示例，帮助你将这些特性集成到你的项目中。

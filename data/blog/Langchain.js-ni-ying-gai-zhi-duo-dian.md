@@ -2,12 +2,8 @@
 layout: PostLayout
 title: Langchain.js你应该知多点
 date: 2024-09-08 05:49:15
-tags: ['js原理']
-summary: ### 关于Langchain.js
-
-Langchain.js，在github上截止到今日已经有92k的start。之前一直偶有耳闻，但没有深入了解。今天看完后，真的是可以堪称大模型里的瑞士军刀。
-
-LangChain由Harrison Chase于2022年10月作为开源软件项目推出，用于连接 OpenAI 的 GPT API（后续已扩展到更多模型）以生成人工智能文本。在创立LangChain
+tags: ['系统应用']
+summary: Langchain.js，在github上截止到今日已经有92k的start。之前一直偶有耳闻，但没有深入了解。今天看完后，真的是可以堪称大模型里的瑞士军刀。LangChain由Harrison Chase于2022年10月作为开源软件项目推出，用于连接 OpenAI 的 GPT API（后续已扩展到更多模型）以生成人工智能文本。在创立LangChain
 ---
 
 ### 关于 Langchain.js

@@ -1,18 +1,9 @@
 ---
 layout: PostLayout
-title: 全新全网最全的NPM发包教程
+title: 如何发布一个NPM包
 date: 2024-08-29 22:23:26
-tags: ['js原理']
-summary: 
-今天我们将从一个空目录开始，一步步地介绍如何将一个包发布到npm，发布一个完全生产可用的包。这将包括：
-
-- 使用Git进行版本控制
-- 使用TypeScript编写代码并保持类型安全
-- 使用Prettier格式化代码
-- 使用`@arethetypeswrong/cli`检查我们的导出
-- 使用tsup将TypeScript代码编译为CJS和ESM
-- 使用Vitest运行我们的测试
-- 使
+tags: ['基础知识']
+summary: 今天我们将从一个空目录开始，一步步地介绍如何将一个包发布到npm，发布一个完全生产可用的包。
 ---
 
 今天我们将从一个空目录开始，一步步地介绍如何将一个包发布到 npm，发布一个完全生产可用的包。这将包括：

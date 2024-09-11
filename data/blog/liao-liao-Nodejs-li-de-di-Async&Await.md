@@ -3,13 +3,7 @@ layout: PostLayout
 title: 聊聊Nodejs里的Async&Await
 date: 2024-09-03 17:36:11
 tags: ['js原理']
-summary: 
-在这篇文章中，咱们聊聊如何用 `async/await` 来简化那些让人头疼的回调和 Promise 代码。
-
-Node.js 这货，它是个异步事件驱动的 JavaScript 运行环境，特别适合用来搭建那些需要高并发的网络应用。它聪明得很，没有锁机制，所以死锁这事儿在它这儿是不存在的。
-
-
-![](https://files.mdnice.com/user/70043/72874471-97f
+summary: 在这篇文章中，咱们聊聊如何用 `async/await` 来简化那些让人头疼的回调和 Promise 代码。Node.js 这货，它是个异步事件驱动的 JavaScript 运行环境，特别适合用来搭建那些需要高并发的网络应用。它聪明得很，没有锁机制，所以死锁这事儿在它这儿是不存在的。
 ---
 
 在这篇文章中，咱们聊聊如何用 `async/await` 来简化那些让人头疼的回调和 Promise 代码。

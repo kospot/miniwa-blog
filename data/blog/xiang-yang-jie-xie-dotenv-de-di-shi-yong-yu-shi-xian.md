@@ -3,10 +3,7 @@ layout: PostLayout
 title: 详解 dotenv 的使用与实现
 date: 2024-08-27 13:31:43
 tags: ['js原理']
-summary: 
-每当涉及到保护API密钥或我们不想因为开源项目而向公众展示的东西时，我们总是倾向于.env文件，而它的解析依赖到dotenv包，一个每周都有31k+开发人员下载的软件包。其设计的理念是Twelve-Factor App的第三点。配置与代码分离。
-
-![](https://files.mdnice.com/user/70043/75c1b5e4-214b-4267-ba66-04cc29db024
+summary: 每当涉及到保护API密钥或我们不想因为开源项目而向公众展示的东西时，我们总是倾向于.env文件，而它的解析依赖到dotenv包，一个每周都有31k+开发人员下载的软件包。其设计的理念是Twelve-Factor App的第三点。配置与代码分离。
 ---
 
 每当涉及到保护 API 密钥或我们不想因为开源项目而向公众展示的东西时，我们总是倾向于.env 文件，而它的解析依赖到 dotenv 包，一个每周都有 31k+开发人员下载的软件包。其设计的理念是 Twelve-Factor App 的第三点。配置与代码分离。

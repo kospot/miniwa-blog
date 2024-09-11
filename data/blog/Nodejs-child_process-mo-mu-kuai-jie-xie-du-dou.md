@@ -3,14 +3,7 @@ layout: PostLayout
 title: Nodejs-child_process模块解读
 date: 2024-09-10 16:30:39
 tags: ['js原理']
-summary: 
-![](https://files.mdnice.com/user/70043/a3fa4c54-f3d9-4f99-83b8-7cf9bcf52128.png)
-
-在 Node.js 应用程序中，`child` 进程模块非常重要，有了它可以实现并行处理，这在资源密集型任务里十分重要。
-
-在本文中，我们将看一下 `child` 进程模块，解释其目的、使用方式以及如何使用。
-
-## 什么是子进程模
+summary: 在 Node.js 应用程序中，`child` 进程模块非常重要，有了它可以实现并行处理，这在资源密集型任务里十分重要。在本文中，我们将看一下 `child` 进程模块，解释其目的、使用方式以及如何使用。
 ---
 
 ![](https://files.mdnice.com/user/70043/a3fa4c54-f3d9-4f99-83b8-7cf9bcf52128.png)

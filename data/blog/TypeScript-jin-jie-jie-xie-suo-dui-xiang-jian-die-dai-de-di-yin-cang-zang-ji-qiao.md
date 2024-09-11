@@ -3,19 +3,7 @@ layout: PostLayout
 title: TypeScript进阶：解锁对象键迭代的隐藏技巧
 date: 2024-09-05 09:09:03
 tags: ['js原理']
-summary: 
-
-在TypeScript中迭代对象键可能会出现一些令人抓狂的情况。来看一个例子，应该大多数人都会经历过：
-
-```
-type User = {
-  name: string;
-  age: number;
-};
-
-function printUser(user: User) {
-  Object.keys(user).forEach((key) => {
-    // Doesn't work!
+summary: 在TypeScript中迭代对象键可能会出现一些令人抓狂的情况。来看一个例子，应该大多数人都会经历过
 ---
 
 在 TypeScript 中迭代对象键可能会出现一些令人抓狂的情况。来看一个例子，应该大多数人都会经历过：
