@@ -6,21 +6,16 @@ tags: ['js原理']
 summary: Swizec Teller 认为简化和优化 React 代码的一种方法是移除所有的 `useCallback` 和 `useMemo`，因为 90% 的情况下并不需要它们。
 ---
 
-
-
-
 Swizec Teller 认为简化和优化 React 代码的一种方法是移除所有的 `useCallback` 和 `useMemo`，因为 90% 的情况下并不需要它们。
 
 > Honestly at this point useCallback is a code smell
-— Swizec Teller (@Swizec) 
+> — Swizec Teller (@Swizec)
 
-Swizec Teller是一名自由工程师兼连续创业家，有超过20年以上的程序开发经验，自称「戴帽子的宅男」(A Geek with a Hat)
+Swizec Teller 是一名自由工程师兼连续创业家，有超过 20 年以上的程序开发经验，自称「戴帽子的宅男」(A Geek with a Hat)
 
 下面我们来看看为什么。
 
-
 ---
-
 
 #### `useCallback` 的作用
 
@@ -55,19 +50,18 @@ React 使用 props 值决定是否重新渲染组件。对于函数和其他对�
 
 ```jsx
 const newFuncEveryTime = () => {
-  setSpinning(!spinning);
-};
+  setSpinning(!spinning)
+}
 ```
 
 每次调用组件时都会重新定义这个函数，导致 `<Spinner>` 重新渲染。
-
 
 `useCallback` 帮助创建一个带有稳定内存地址的函数：
 
 ```jsx
 const stableFunc = useCallback(() => {
-  setSpinning(!spinning);
-}, [spinning]);
+  setSpinning(!spinning)
+}, [spinning])
 ```
 
 这创建了一个记忆化函数，仅在依赖数组改变时重新实例化。
@@ -78,8 +72,8 @@ const stableFunc = useCallback(() => {
 
 ```jsx
 const stableFunc = useCallback(() => {
-  setSpinning(!spinning);
-}, []);
+  setSpinning(!spinning)
+}, [])
 ```
 
 这样，`spinning` 的值会被永久写入到函数中，导致函数行为不如预期。
@@ -89,6 +83,7 @@ const stableFunc = useCallback(() => {
 在很多情况下，开发者使用 `useCallback` 是不必要的，甚至可能带来问题。有点心像“晚上涂防晒霜”。
 
 开发者可能会使用 `useCallback` 的原因：
+
 - **性能担忧**：开发者可能担心组件的性能，希望通过 `useCallback` 来避免不必要的重新渲染。这实际上可能会引入内存开销，因为 JavaScript 需要维护所有这些记忆化函数的栈。
 - **无限循环问题**：当使用不稳定的回调或对象作为 `useEffect` 的依赖时，每次渲染都会重新定义回调，触发效果，导致重新渲染，形成无限循环。
 
@@ -113,8 +108,6 @@ function Component() {
 
 不要过度使用 `useCallback`，而是应该定义组件并让 React 自己处理渲染逻辑。
 
-
-
 ### 避免 `useCallback` 的方法
 
 最佳方法是将函数移出组件作用域，使用纯函数依赖传入的参数，而不是作用域内的值。
@@ -125,24 +118,24 @@ function Component() {
 
 ```jsx
 function FidgetSpinner() {
-  const [spinning, setSpinning] = useState(false);
+  const [spinning, setSpinning] = useState(false)
 
   return (
     <>
       <p>Is it spinning? {spinning}</p>
       <Spinner spinning={spinning} setSpinning={setSpinning} />
     </>
-  );
+  )
 }
 ```
 
 `setSpinning` 是一个稳定的函数，可以传递给 `<Spinner>` 并使用它的替代形式来切换状态：
 
 ```jsx
-setSpinning((spinning) => !spinning);
+setSpinning((spinning) => !spinning)
 ```
 
-您可以使用获取当前值作为参数的函数调用React setters。
+您可以使用获取当前值作为参数的函数调用 React setters。
 
 #### 示例 2
 
@@ -172,13 +165,11 @@ function ComplicatedStuff() {
 }
 ```
 
-formMethods.watch监视您的输入字段并返回其当前值。
+formMethods.watch 监视您的输入字段并返回其当前值。
 
-在这里，为了避免每次按键都有不必要的完全重新渲染，你会想使用useCallback记住`onSubmit`函数,并将所有字段添加到其依赖数组中。
-
+在这里，为了避免每次按键都有不必要的完全重新渲染，你会想使用 useCallback 记住`onSubmit`函数,并将所有字段添加到其依赖数组中。
 
 其实大可不必，试试这个：
-
 
 ```jsx
 async function onSubmit(values) {
@@ -194,7 +185,7 @@ function ComplicatedStuff() {
 }
 ```
 
-React-hook-form将所有当前值传递到onSubmit函数中，通过形参传递到函数里。
+React-hook-form 将所有当前值传递到 onSubmit 函数中，通过形参传递到函数里。
 
 ### 何时需要使用 `useCallback` 和 `useMemo`
 
@@ -210,20 +201,17 @@ React-hook-form将所有当前值传递到onSubmit函数中，通过形参传递
 2. **性能瓶颈**：当你确定性能问题源于不必要的重新渲染或计算时，可以使用 `useCallback` 和 `useMemo` 来优化。
 3. **复杂依赖**：如果组件依赖复杂的对象或函数，记忆化可以避免不必要的依赖变化触发重新渲染。
 
-
 假设你有一个复杂的计算函数，用于生成大型数据集，每次渲染时都需要重新计算：
 
 ```jsx
 const expensiveCalculation = useMemo(() => {
   // 复杂计算
-  return result;
-}, [dependencies]);
+  return result
+}, [dependencies])
 ```
 
 在这种情况下，`useMemo` 可以显著提高性能，因为只有当依赖项改变时，计算才会重新执行。
 
-
 尽管 `useCallback` 和 `useMemo` 可以优化性能，但滥用它们可能会导致代码复杂化和内存开销增加。要明智地使用这些钩子，确保它们确实能带来性能提升。
-
 
 ---
