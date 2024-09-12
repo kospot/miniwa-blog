@@ -3,17 +3,7 @@ layout: PostLayout
 title: GitCICD
 date: 2024-07-24 09:49:07
 tags: ['js原理']
-summary: ### GitLab CI/CD 简介与使用指南
-
-
-
-#### 引言
-
-GitLab CI/CD 是 GitLab 提供的一套强大工具，帮助开发者自动化构建、测试和部署过程。借助 GitLab CI/CD 我们可以轻松实现系统的自动化构建和部署。
-
-#### GitLab CI/CD 的功能及效果
-
-GitLab CI/CD 提供了自动化的构建、测试和部署流程，从而确保代码变更可以迅速且稳定地集
+summary: GitLab CI/CD 是 GitLab 提供的一套强大工具，帮助开发者自动化构建、测试和部署过程。借助 GitLab CI/CD 我们可以轻松实现系统的自动化构建和部署。GitLab CI/CD 提供了自动化的构建、测试和部署流程，从而确保代码变更可以迅速且稳定地集
 ---
 
 ### GitLab CI/CD 简介与使用指南
