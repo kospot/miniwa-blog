@@ -35,9 +35,14 @@
   </head>
   <body>
     <script>
+    let year = new Date().getFullYear() - 1;
+    // 判断今天是否大于等于10月24日
+    if (new Date().getMonth() >= 9 && new Date().getDate() >= 24) {
+        year = year + 1;
+    }
       let styles = `\
 /*
-* 今天是 2022-10-24
+* 今天是 ${year}-10-24
 * 我们程序员的一个节日
 * 1GB = 1024M，也就是一级棒
 * 用代码画一个 Github 章鱼猫庆祝下吧~
